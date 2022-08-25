@@ -23,8 +23,8 @@ class ProductionConfig(Config):
 
     # Security
     SESSION_COOKIE_HTTPONLY = True
-    REMEMBER_COOKIE_HTTPONLY = True
-    REMEMBER_COOKIE_DURATION = 3600
+    REMEMBER_COOKIE_HTTPONLY = False
+    REMEMBER_COOKIE_DURATION = 500
 
     # PostgreSQL database
     SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}:{}/{}'.format(
@@ -33,12 +33,12 @@ class ProductionConfig(Config):
         config('DB_PASS', default='pass'),
         config('DB_HOST', default='localhost'),
         config('DB_PORT', default=5432),
-        config('DB_NAME', default='appseed-flask')
+        config('DB_NAME', default='appseed-flask corona')
     )
 
 
 class DebugConfig(Config):
-    DEBUG = True
+    DEBUG = False
 
 
 # Load all possible configurations
